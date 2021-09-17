@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Custom transport for Winston.",
   "type": "module",
-  "main": "src/data-transport.js",
+  "main": "src/datadog-transport.js",
   "files": [
     "LICENSE",
     "README.md",

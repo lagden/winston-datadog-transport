@@ -9,6 +9,9 @@ on:
 
 jobs:
   build:
+    env:
+      DD_KEY: ${{ secrets.DD_KEY }}
+      CI: true
 
     runs-on: ubuntu-latest
 
@@ -25,14 +28,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        env:
-          CI: true
         run: npm ci
 
       - name: Run test
-        env:
-          DD_KEY: ${{ secrets.DD_KEY }}
-        run: env DD_KEY=$DD_KEY npm run test:github
+        run: npm run test:github
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
