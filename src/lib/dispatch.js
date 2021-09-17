@@ -22,6 +22,9 @@ async function dispatch(data, opts) {
 		searchParams: {
 			ddtags,
 		},
+		retry: {
+			limit: 0,
+		},
 	})
 
 	return data
