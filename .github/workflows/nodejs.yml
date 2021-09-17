@@ -7,11 +7,12 @@ on:
   pull_request:
     branches: [main]
 
+env:
+  DD_KEY: ${{ secrets.DD_KEY }}
+  CI: true
+
 jobs:
   build:
-    env:
-      DD_KEY: ${{ secrets.DD_KEY }}
-      CI: true
 
     runs-on: ubuntu-latest
 
@@ -21,6 +22,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: show the env
+        run: echo We can get global values for multiple jobs $DD_KEY
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
