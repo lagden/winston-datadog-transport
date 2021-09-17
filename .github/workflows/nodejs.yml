@@ -29,11 +29,8 @@ jobs:
         env:
           CI: true
 
-      - name: Create env
-        run: touch .env
-
       - name: Run test
-        run: npm test
+        run: npm run test:github
         env:
           CI: true
 

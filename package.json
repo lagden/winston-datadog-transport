@@ -33,7 +33,8 @@
   "scripts": {
     "eslint": "eslint --config .eslintrc.yml --ext .js --ignore-path .gitignore .",
     "pretest": "npm run eslint",
-    "test": "set -a;. .env;set +a;env DEBUG=@tadashi/winston-datadog-transport:* c8 --reporter=text --reporter=text-summary --reporter=lcov ava --tap"
+    "test:github": "env DEBUG=@tadashi/winston-datadog-transport:* c8 --reporter=text --reporter=text-summary --reporter=lcov ava --tap",
+    "test": "set -a;. .env;set +a;npm run test:github"
   },
   "dependencies": {
     "got": "11.8.2",
