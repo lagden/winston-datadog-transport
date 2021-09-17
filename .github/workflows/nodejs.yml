@@ -25,14 +25,14 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: npm ci
         env:
           CI: true
+        run: npm ci
 
       - name: Run test
-        run: npm run test:github
         env:
           DD_KEY: ${{ secrets.DD_KEY }}
+        run: env DD_KEY=$DD_KEY npm run test:github
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
