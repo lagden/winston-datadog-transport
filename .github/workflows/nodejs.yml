@@ -32,7 +32,7 @@ jobs:
       - name: Run test
         run: npm run test:github
         env:
-          CI: true
+          DD_KEY: ${{ secrets.DD_KEY }}
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
