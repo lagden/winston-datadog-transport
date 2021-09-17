@@ -21,8 +21,9 @@ jobs:
 
       - name: show the env
         env:
-          xxx: ${{ secrets.DD_KEY }}
-        run: echo We can get global values for multiple jobs $xxx xxx.
+          dd: ${{ secrets.DD_KEY }}
+          xxx: ${{ secrets.XXX }}
+        run: echo We can get global values for multiple jobs $dd $xxx ...
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
